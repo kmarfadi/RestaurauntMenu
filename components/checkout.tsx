@@ -60,10 +60,10 @@ export function Checkout({ onBackToMenu, onOrderComplete }: CheckoutProps) {
       const data = await response.json()
       const whatsappUrl = data.whatsappUrl
 
-      // Clear the cart and open the WhatsApp link
+      // Clear the cart and redirect to the WhatsApp link
       clearCart()
       onOrderComplete("Order Completed")
-      window.open(whatsappUrl, "_blank") // Open WhatsApp URL in a new tab
+      window.location.href = whatsappUrl // Redirect to WhatsApp URL
     } catch (error) {
       console.error("Error:", error)
       alert("An error occurred while processing your order. Please try again.")
