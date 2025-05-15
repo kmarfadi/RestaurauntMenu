@@ -21,7 +21,7 @@ type ItemData = {
   category_id: number;
 };
 
-const API = 'http://localhost:3003'; // Change if needed
+const API = 'https://restaurauntmenu-server.onrender.com'; // Change if needed
 
 const AdminPanel: React.FC = () => {
   const [token, setToken] = useState<string>(typeof window !== 'undefined' ? localStorage.getItem('token') || '' : '');

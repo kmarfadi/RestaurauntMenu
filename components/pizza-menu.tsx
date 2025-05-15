@@ -28,7 +28,10 @@ export function PizzaMenu() {
     // Fetch categories and items from the /menu endpoint
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:3003/menu")
+        const apiUrl = process.env.NODE_ENV === "production"
+          ? "https://restaurauntmenu-server.onrender.com/menu"
+          : "http://localhost:3003/menu";
+        const response = await fetch(apiUrl);
         const data = await response.json()
 
         setCategories([ ...data.categories]) // Add default category
