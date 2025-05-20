@@ -26,9 +26,7 @@ export function MenuPage() {
     setView("menu")
   }
 
-  const handleGoToAdmin = () => {
-    router.push("/admin") // Navigate to /admin
-  }
+
 
   return (
     <CartProvider>
@@ -38,12 +36,6 @@ export function MenuPage() {
           {view === "menu" && (
             <>
               <PizzaMenu />
-              <button
-                onClick={handleGoToAdmin} // Add button to navigate to AdminPanel
-                className="fixed bottom-16 right-4 bg-blue-500 text-white px-4 py-2 rounded"
-              >
-                Admin Panel
-              </button>
               <div className="lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-background border-t border-border">
                 <Cart isCompact onCheckout={handleCheckout} />
               </div>

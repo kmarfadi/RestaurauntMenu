@@ -1,6 +1,5 @@
 import type { Pizza } from "@/types"
 import axios from "axios"
-import { useEffect, useState } from "react"
 
 // Fetch pizza data from an API endpoint
 import React from "react";

@@ -34,7 +34,7 @@ export function PizzaCard({ pizza }: PizzaCardProps) {
         <CardContent className="p-4">
           <div className="flex justify-between items-start">
             <div>
-              <h3 className="font-cairo font-bold text-base">{pizza.name}</h3>
+              <h3 className="font-cairo font-bold text-sm">{pizza.name}</h3>
               <p className="font-cairo text-sm text-muted-foreground line-clamp-2 mt-1 text-xs">{price}﷼</p>
             </div>
           </div>
