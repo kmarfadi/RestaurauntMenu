@@ -11,7 +11,7 @@ import { CartProvider } from "@/components/cart-provider"
 
 export function MenuPage() {
   const [view, setView] = useState<"menu" | "checkout" | "confirmation">("menu")
-  const [setOrderId] = useState<string | null>(null)
+  //const [setOrderId] = useState<string | null>(null)
   const router = useRouter() // Initialize router
 
   const handleCheckout = () => {

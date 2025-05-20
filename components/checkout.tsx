@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { useCart } from "@/components/cart-provider"
+import axios from "axios"
 
 interface CheckoutProps {
   onBackToMenu: () => void
@@ -36,28 +37,19 @@ export function Checkout({ onBackToMenu, onOrderComplete }: CheckoutProps) {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch("https://restaurauntmenu-server.onrender.com/checkout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          address,
-          cart: items.map((item) => ({
-            id: item.id,
-            name: item.name,
-            qty: item.quantity,
-          })),
-          branch_id: branchId,
-        }),
+      const response = await axios.post("https://-server.onrender.com/checkout", {
+      //  const response = await axios.post("http://localhost:3003/checkout", {
+        name,
+        address,
+        cart: items.map((item) => ({
+          id: item.id,
+          name: item.name,
+          qty: item.quantity,
+        })),
+        branch_id: branchId,
       })
 
-      if (!response.ok) {
-        throw new Error("Failed to process the order.")
-      }
-
-      const data = await response.json()
+      const data = response.data
       const whatsappUrl = data.whatsappUrl
 
       // Clear the cart and redirect to the WhatsApp link

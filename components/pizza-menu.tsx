@@ -88,8 +88,14 @@ export function PizzaMenu() {
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap- max-w-5xl mx-auto">
-        {filteredPizzas.map((pizza) => (
-          <PizzaCard key={pizza.id} pizza={pizza} />
+        {filteredPizzas.map((pizza, index) => (
+          <div
+            key={pizza.id}
+            style={{ animationDelay: `${index * 0.5}s` }}
+            className="fade-in" // Use the correct class
+          >
+            <PizzaCard pizza={pizza} />
+          </div>
         ))}
       </div>
     </div>
